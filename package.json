@@ -1,0 +1,15 @@
+{
+  "name": "crfc-fb-server",
+  "version": "1.0.0",
+  "description": "A Node.js server to interact with Facebook",
+  "main": "crfc-fb-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "G-Lauz",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1"
+  }
+}
