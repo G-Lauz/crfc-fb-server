@@ -1,5 +1,5 @@
 # crfc-fb-server
-## A server who run application that interact with Facebook.
+## Current module used
 
 **Messenger Chatbot:** [Messenger-Chatbot](https://github.com/G-Lauz/Messenger-Chatbot#readme)
 
