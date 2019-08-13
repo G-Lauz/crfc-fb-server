@@ -11,8 +11,8 @@ const express = require('express'),
 var server = express().use(bodyParser.json()); // creates express http server
 
 // Routes
-server.use('/app/chatbot', require('./app/messenger-webhook/index'));
-server.use('/app/emplois', require('./app/tab-emplois/index'));
+server.use('/app/chatbot', require('messenger-chatbot'));
+server.use('/app/emplois', require('tab-emplois'));
 server.get('/', function(req, res) {
   console.log('test crfc-fb-server.js');
 });
