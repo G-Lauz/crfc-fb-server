@@ -6,10 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G-Lauz/crfc-fb-server.git"
+  },
   "author": "G-Lauz",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^8.0.0",
     "express": "^4.17.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/G-Lauz/crfc-fb-server/issues"
+  },
+  "homepage": "https://github.com/G-Lauz/crfc-fb-server#readme"
 }
