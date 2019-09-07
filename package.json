@@ -1,8 +1,12 @@
 {
   "name": "crfc-fb-server",
   "version": "1.0.0",
-  "description": "A Node.js server to interact with Facebook",
+  "description": "A Node.js app server",
   "main": "crfc-fb-server.js",
+  "preferGlobal": true,
+  "bin": {
+    "crvfc": "./crfc-fb-server.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +20,8 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "messenger-chatbot": "file:../Chatbot/messenger-chatbot",
-    "tab-emplois": "file:../tab-emplois"
+    "tab-emplois": "file:../tab-emplois",
+    "yargs": "^14.0.0"
   },
   "bugs": {
     "url": "https://github.com/G-Lauz/crfc-fb-server/issues"
