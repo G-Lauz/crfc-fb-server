@@ -17,7 +17,7 @@
   "author": "G-Lauz",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "forever": "^1.0.0",
     "forever-monitor": "^1.7.1",
