@@ -5,27 +5,12 @@
 
 require('dotenv').config();
 
-const express = require('express'),
-      bodyParser = require('body-parser'),
-      yargs = require('yargs');
-
-// required middlewares
-var server = express().use(bodyParser.json()); // creates express http server
-
-function start_server() {
-  // Routes
-  server.use('/app/chatbot', require('messenger-chatbot'));
-  server.use('/app/emplois', require('tab-emplois'));
-  server.get('/', function(req, res) {
-    console.log('test crfc-fb-server.js');
-  });
-
-  // Server listening
-  server.listen(process.env.PORT || 1337, () => console.log('Server is listening'));
-}
+const yargs = require('yargs'),
+      pm2 = require('pm2'),
+      server = require('./utils/server');
 
 const argv = yargs
-  .scriptName("crvfc")
+  .scriptName("crfc")
   .command('start [app]', 'Start the designated application', {
     app: {
       description: "path leading to the application, if none, the server will start",
@@ -36,7 +21,24 @@ const argv = yargs
       console.log("starting up the", argv.app);
     } else {
       console.log("starting up the server");
-      start_server();
+      pm2.connect((err) =>{
+        if(err) {
+          console.error(err);
+          process.exit(2);
+        }
+
+        pm2.start({
+          script: './utils/server.js',
+          name: 'crfc-server',
+          exec_mode: 'fork',
+          max_memory_restart: '100M',
+          watch: true
+        }, (err, apps) => {
+          console.log('Déconnexion');
+          pm2.disconnect();
+          if (err) throw err;
+        });
+      });
     }
   })
   .command('stop [app]', 'Stop the designated application', {
@@ -50,9 +52,10 @@ const argv = yargs
     } else {
       console.log("shutting down the server");
       // TODO
+      pm2.disconnect();
     }
   })
-  .usage("Usage:")
+  .usage("Usage: crvfc [action] [options]")
   .options('verbose', {
     alias: 'v',
     description: 'Verbose the output',
