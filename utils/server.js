@@ -21,12 +21,12 @@ function start(port) {
 
 }
 
-process.on('exit', () => {
+/*process.on('exit', () => {
   console.log('about to close de server');
   server.close();
 });
 
-start();
+start();*/
 
 module.exports = {
   start
