@@ -21,6 +21,8 @@ const argv = yargs
       console.log("starting up the", argv.app);
     } else {
       console.log("starting up the server");
+      server.start();
+      /*
       pm2.connect((err) =>{
         if(err) {
           console.error(err);
@@ -38,7 +40,9 @@ const argv = yargs
           pm2.disconnect();
           if (err) throw err;
         });
+
       });
+      */
     }
   })
   .command('stop [app]', 'Stop the designated application', {
